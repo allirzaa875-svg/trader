@@ -1,0 +1,188 @@
+‎<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎    <meta charset="UTF-8">
+‎    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎    <title>Trader Raza - Official Trading Hub</title>
+‎    <link rel="preconnect" href="https://fonts.googleapis.com">
+‎    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+‎    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+‎    <style>
+‎        * {
+‎            margin: 0;
+‎            padding: 0;
+‎            box-sizing: border-box;
+‎        }
+‎
+‎        body {
+‎            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+‎            background: #000000;
+‎            min-height: 100vh;
+‎            display: flex;
+‎            justify-content: center;
+‎            align-items: flex-start;
+‎            padding: 20px 16px;
+‎            color: #ffffff;
+‎        }
+‎
+‎        .container {
+‎            width: 100%;
+‎            max-width: 420px;
+‎            position: relative;
+‎        }
+‎
+‎        /* Blue glow effect at top-right */
+‎        .glow-effect {
+‎            position: fixed;
+‎            top: -100px;
+‎            right: -100px;
+‎            width: 400px;
+‎            height: 400px;
+‎            background: radial-gradient(circle, rgba(29, 161, 242, 0.25) 0%, rgba(29, 161, 242, 0.08) 40%, transparent 70%);
+‎            pointer-events: none;
+‎            z-index: 0;
+‎        }
+‎
+‎        .content {
+‎            position: relative;
+‎            z-index: 1;
+‎        }
+‎
+‎        /* Header */
+‎        .header {
+‎            text-align: center;
+‎            margin-bottom: 24px;
+‎            padding-top: 8px;
+‎        }
+‎
+‎        .name-wrapper {
+‎            display: inline-flex;
+‎            align-items: center;
+‎            justify-content: center;
+‎            gap: 8px;
+‎        }
+‎
+‎        .name {
+‎            font-size: 28px;
+‎            font-weight: 900;
+‎            letter-spacing: -0.5px;
+‎            color: #ffffff;
+‎            text-transform: uppercase;
+‎        }
+‎
+‎        .verified-badge {
+‎            width: 22px;
+‎            height: 22px;
+‎            background: #1DA1F2;
+‎            border-radius: 50%;
+‎            display: inline-flex;
+‎            align-items: center;
+‎            justify-content: center;
+‎            flex-shrink: 0;
+‎        }
+‎
+‎        .verified-badge svg {
+‎            width: 14px;
+‎            height: 14px;
+‎            fill: #ffffff;
+‎        }
+‎
+‎        /* Info Card */
+‎        .info-card {
+‎            background: rgba(30, 30, 30, 0.6);
+‎            border: 1px solid rgba(255, 255, 255, 0.08);
+‎            border-radius: 20px;
+‎            padding: 24px 20px;
+‎            text-align: center;
+‎            margin-bottom: 16px;
+‎            backdrop-filter: blur(10px);
+‎        }
+‎
+‎        .info-card h2 {
+‎            font-size: 18px;
+‎            font-weight: 800;
+‎            color: #ffffff;
+‎            margin-bottom: 16px;
+‎            letter-spacing: 0.5px;
+‎        }
+‎
+‎        .info-card p {
+‎            font-size: 15px;
+‎            line-height: 1.6;
+‎            color: #b0b0b0;
+‎            margin-bottom: 10px;
+‎            display: flex;
+‎            align-items: center;
+‎            justify-content: center;
+‎            gap: 8px;
+‎        }
+‎
+‎        .info-card p:last-child {
+‎            margin-bottom: 0;
+‎        }
+‎
+‎        .info-card .emoji {
+‎            font-size: 18px;
+‎            line-height: 1;
+‎        }
+‎
+‎        /* Link Buttons */
+‎        .link-button {
+‎            display: flex;
+‎            align-items: center;
+‎            background: rgba(30, 30, 30, 0.6);
+‎            border: 1px solid rgba(255, 255, 255, 0.08);
+‎            border-radius: 16px;
+‎            padding: 14px 16px;
+‎            margin-bottom: 12px;
+‎            text-decoration: none;
+‎            color: #ffffff;
+‎            transition: background 0.2s ease;
+‎            backdrop-filter: blur(10px);
+‎        }
+‎
+‎        .link-button:active {
+‎            background: rgba(50, 50, 50, 0.8);
+‎        }
+‎
+‎        .link-icon {
+‎            width: 48px;
+‎            height: 48px;
+‎            border-radius: 12px;
+‎            display: flex;
+‎            align-items: center;
+‎            justify-content: center;
+‎            flex-shrink: 0;
+‎            margin-right: 14px;
+‎        }
+‎
+‎        .link-icon.telegram {
+‎            background: #0088cc;
+‎        }
+‎
+‎        .link-icon.telegram-personal {
+‎            background: #0088cc;
+‎        }
+‎
+‎        .link-icon.whatsapp {
+‎            background: #25D366;
+‎        }
+‎
+‎        .link-icon.whatsapp-channel {
+‎            background: #25D366;
+‎        }
+‎
+‎        .link-icon svg {
+‎            width: 26px;
+‎            height: 26px;
+‎            fill: #ffffff;
+‎        }
+‎
+‎        .link-text {
+‎            flex: 1;
+‎            text-align: left;
+‎        }
+‎
+‎        .link-text .title {
+‎            font-size: 17px;
+‎            font-weight: 700
